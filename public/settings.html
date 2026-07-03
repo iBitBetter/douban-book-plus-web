@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>设置 — Douban eBook ++</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+  <div class="app">
+    <!-- 顶栏 -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-mark">DB+</div>
+        <div class="brand-text">
+          <h1>Douban eBook ++</h1>
+          <p>镜像与搜索地址配置</p>
+        </div>
+      </div>
+      <div class="theme-toggle" role="group" aria-label="主题切换">
+        <button class="theme-btn" data-theme="light" title="浅色" aria-label="浅色主题">☀</button>
+        <button class="theme-btn" data-theme="dark" title="深色" aria-label="深色主题">☾</button>
+        <button class="theme-btn" data-theme="system" title="跟随系统" aria-label="跟随系统">⌂</button>
+      </div>
+    </header>
+
+    <a href="index.html" class="back-link">← 返回搜索</a>
+    <div class="settings-title">设置</div>
+    <div class="settings-sub">配置 Z-Library 镜像与 Anna's Archive 搜索地址</div>
+
+    <!-- Z-Library 镜像 -->
+    <section class="settings-card">
+      <div class="section-header">
+        <h2 class="zlib-h">Z-Library 镜像</h2>
+        <div class="section-actions">
+          <button id="btnAdd" class="btn btn-primary btn-small">+ 添加</button>
+          <button id="btnReset" class="btn btn-secondary btn-small">恢复默认</button>
+        </div>
+      </div>
+      <p class="hint">按优先级从上到下探测，首个可用镜像将用于生成 ISBN 搜索链接。</p>
+      <div id="mirrorList" class="mirror-list"></div>
+      <div id="statusMsg" class="status-msg"></div>
+    </section>
+
+    <!-- Anna's Archive -->
+    <section class="settings-card">
+      <div class="section-header">
+        <h2 class="annas-h">Anna's Archive</h2>
+      </div>
+      <p class="hint">搜索地址模板，<code>{query}</code> 会被替换为 ISBN 或书名。默认 <code>annas-archive.gl</code>，域名变更可在此修改。</p>
+      <div class="annas-input-row">
+        <input type="url" id="annasUrl" placeholder="https://annas-archive.gl/search?q={query}" maxlength="300">
+        <button id="btnSaveAnnas" class="btn btn-annas">保存</button>
+      </div>
+      <div id="annasStatus" class="status-msg"></div>
+    </section>
+
+    <!-- 帮助 -->
+    <section class="settings-card help-section">
+      <h2>字段说明</h2>
+      <table>
+        <thead>
+          <tr><th>字段</th><th>说明</th><th>示例</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>名称</code></td>
+            <td>镜像简称，显示在搜索结果中</td>
+            <td>zlib.re</td>
+          </tr>
+          <tr>
+            <td><code>搜索基础地址</code></td>
+            <td>拼接 <code>/s/{ISBN}</code> 生成搜索链接的基础 URL</td>
+            <td>https://zh.vbh101.ru</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="app-footer">
+      <span>Douban eBook ++ Web v1.0</span>
+      <a href="index.html">返回搜索</a>
+      <span>·</span>
+      <span>MIT © BitBetter</span>
+    </footer>
+  </div>
+
+  <!-- 编辑弹窗 -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <h3 id="modalTitle">编辑镜像</h3>
+      <div class="form-group">
+        <label for="mirrorName">名称</label>
+        <input type="text" id="mirrorName" placeholder="例如：zlib.re" maxlength="50">
+      </div>
+      <div class="form-group">
+        <label for="mirrorSearchBase">搜索基础地址 (searchBase)</label>
+        <input type="url" id="mirrorSearchBase" placeholder="https://zh.vbh101.ru" maxlength="200">
+      </div>
+      <div class="modal-actions">
+        <button id="btnCancel" class="btn btn-secondary">取消</button>
+        <button id="btnSave" class="btn btn-primary">保存</button>
+      </div>
+      <div id="modalMsg" class="modal-msg"></div>
+    </div>
+  </div>
+
+  <script src="js/platforms.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

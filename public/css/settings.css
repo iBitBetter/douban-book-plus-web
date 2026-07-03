@@ -1,0 +1,358 @@
+/* ==========================================================
+   设置页样式 — 沿用 main.css 主题变量
+   ========================================================== */
+
+/* 返回链接 */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-soft);
+  font-weight: 500;
+  margin-bottom: 18px;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--ikb); }
+
+.settings-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  margin-bottom: 4px;
+}
+.settings-sub {
+  font-size: 13px;
+  color: var(--text-soft);
+  margin-bottom: 26px;
+}
+
+/* 设置卡 */
+.settings-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px 24px 22px;
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.section-header h2 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.section-header h2.annas-h { color: #805AD5; }
+.section-header h2.zlib-h { color: #2B6CB0; }
+
+.section-actions { display: flex; gap: 8px; }
+
+.hint {
+  font-size: 12.5px;
+  color: var(--text-mute);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.hint code {
+  font-size: 11.5px;
+  background: var(--border-strong);
+  padding: 1.5px 6px;
+  border-radius: 5px;
+  color: var(--text-soft);
+  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+}
+
+/* ---------- 按钮 ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 15px;
+  border: none;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  transition: transform 0.15s cubic-bezier(0.16,1,0.3,1), background 0.2s, box-shadow 0.2s;
+}
+
+.btn:active { transform: scale(0.96); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--ikb), var(--ikb-soft));
+  color: #fff;
+  box-shadow: 0 4px 12px var(--ikb-glow);
+}
+.btn-primary:hover { box-shadow: 0 6px 18px var(--ikb-glow); transform: translateY(-1px); }
+
+.btn-annas {
+  background: linear-gradient(135deg, #805AD5, #9f7aea);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(128,90,213,0.3);
+}
+.btn-annas:hover { box-shadow: 0 6px 18px rgba(128,90,213,0.4); transform: translateY(-1px); }
+
+.btn-secondary {
+  background: var(--border-strong);
+  color: var(--text-soft);
+}
+.btn-secondary:hover { background: var(--text-mute); color: var(--surface-solid); }
+
+.btn-danger {
+  background: rgba(229, 62, 62, 0.12);
+  color: #e53e3e;
+}
+.btn-danger:hover { background: rgba(229, 62, 62, 0.22); }
+
+.btn-small { padding: 4px 11px; font-size: 12px; }
+
+/* ---------- 镜像列表 ---------- */
+.mirror-list {
+  background: var(--surface-solid);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.mirror-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+  transition: background 0.15s;
+}
+.mirror-item:last-child { border-bottom: none; }
+.mirror-item:hover { background: var(--surface-hover); }
+
+.mirror-index {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ikb), var(--ikb-soft));
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mirror-info { flex: 1; min-width: 0; }
+
+.mirror-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.mirror-urls {
+  font-size: 11.5px;
+  color: var(--text-mute);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mirror-urls code {
+  font-size: 11px;
+  background: var(--border-strong);
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: var(--text-soft);
+  font-family: "SF Mono", Consolas, monospace;
+}
+
+.mirror-actions { display: flex; gap: 5px; flex-shrink: 0; }
+
+.empty-state {
+  padding: 36px 20px;
+  text-align: center;
+  color: var(--text-mute);
+  font-size: 13px;
+}
+
+/* ---------- 状态消息 ---------- */
+.status-msg {
+  margin-top: 14px;
+  padding: 9px 14px;
+  border-radius: 9px;
+  font-size: 12.5px;
+  font-weight: 500;
+  display: none;
+}
+.status-msg.success { display: block; background: rgba(72,187,120,0.14); color: #2f855a; }
+.status-msg.error { display: block; background: rgba(229,62,62,0.14); color: #c53030; }
+[data-theme="dark"] .status-msg.success { color: #68d391; }
+[data-theme="dark"] .status-msg.error { color: #fc8181; }
+
+/* ---------- Anna's Archive 输入 ---------- */
+.annas-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.annas-input-row input {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  padding: 0 15px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--surface-solid);
+  color: var(--text);
+  font-size: 13.5px;
+  font-family: "SF Mono", Consolas, monospace;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.annas-input-row input:focus {
+  outline: none;
+  border-color: #805AD5;
+  box-shadow: 0 0 0 3px rgba(128,90,213,0.2);
+}
+
+/* ---------- 帮助表格 ---------- */
+.help-section h2 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text-soft);
+}
+
+.help-section table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.help-section th, .help-section td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.help-section th {
+  font-weight: 600;
+  color: var(--text-soft);
+  background: var(--surface-hover);
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+.help-section td { color: var(--text); vertical-align: top; }
+.help-section tr:last-child td { border-bottom: none; }
+
+.help-section code {
+  font-size: 11.5px;
+  background: var(--border-strong);
+  padding: 2px 6px;
+  border-radius: 5px;
+  color: var(--ikb);
+  font-family: "SF Mono", Consolas, monospace;
+}
+[data-theme="dark"] .help-section code { color: #7a9fff; }
+
+/* ---------- 编辑弹窗 ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 14, 30, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+.modal.open { display: flex; animation: fadeIn 0.2s ease; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-content {
+  background: var(--surface-solid);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 26px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.28s cubic-bezier(0.16,1,0.3,1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  letter-spacing: -0.2px;
+}
+
+.form-group { margin-bottom: 14px; }
+
+.form-group label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin-bottom: 5px;
+  letter-spacing: 0.2px;
+}
+
+.form-group input {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--surface-solid);
+  color: var(--text);
+  font-size: 13.5px;
+  font-family: "SF Mono", Consolas, monospace;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input:focus {
+  outline: none;
+  border-color: var(--ikb);
+  box-shadow: 0 0 0 3px var(--ikb-glow);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 9px;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
+.modal-msg {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #e53e3e;
+  display: none;
+  min-height: 16px;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 600px) {
+  .mirror-item { flex-wrap: wrap; }
+  .mirror-actions { width: 100%; justify-content: flex-end; margin-top: 4px; }
+  .annas-input-row { flex-direction: column; }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
